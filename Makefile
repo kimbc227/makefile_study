@@ -14,6 +14,3 @@ clean:
 
 MySocket.o : MySocket.c MySocket.h
 MyClient.o : MyClient.c MySocket.h
-# DO NOT DELETE
-MySocket.o: MySocket.c MySocket.h
-MyClient.o: MyClient.c MySocket.h
