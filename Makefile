@@ -1,22 +1,31 @@
+DEPEND_FILE = depend_file
+
 CC = gcc
-TARGET = MyClient
-SRCS = MySocket.c MyMutex.c MySemaphore.c MyThread.c MyClient.c 
+
+SRCS = MySocket.c MyMutex.c MySemaphore.c MyThread.c MyClient.c
 OBJS = $(SRCS:%.c=%.o)
 
 LIBS = -lpthread
- 
+
+TARGET = MyClient
+
 .SUFFIXES : .c .o
 
 all : $(TARGET)
 
 $(TARGET) : $(OBJS)
-	$(CC) -o $(TARGET) $(OBJS) $(LIBS)
+		  $(CC) -o $@ $(OBJS) $(LIBS)
 
-clean:
-	rm -f $(OBJS) $(TARGET) 
+depend :
+	   $(CC) -MM $(SRCS) > $(DEPEND_FILE)
 
-depend:
-	gccmakedep $(SRCS)
+clean :
+	  rm -f $(OBJS) $(TARGET) $(DEPEND_FILE)
 
-#MySocket.o : MySocket.c MySocket.h
-#MyClient.o : MyClient.c MySocket.h
+ifneq ($(MAKECMDGOALS), clean)
+ifneq ($(MAKECMDGOALS), depend)
+ifneq ($(SRCS),)
+-include $(DEPEND_FILE)
+endif
+endif
+endif
