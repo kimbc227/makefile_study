@@ -20,7 +20,7 @@ INT32 main()
 	MyMutexT* myMutex = NewMutex();
 	DeleteMutex(myMutex);
 	
-	MySocketT mySocket = CreateTcpSocket();
+	MySocketT mySocket = OpenTcpSocket();
 	close(mySocket);
 	
 	MyThreadT* myThread = NewThread(DoSomethingNiceProc, NULL, 512 * 1024 * 1024);

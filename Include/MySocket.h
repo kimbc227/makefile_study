@@ -31,8 +31,8 @@ INT32 CloseSocket(MySocketT a_socket);
 const CHAR* ConvertNetworkAddressToString(const void* a_address, CHAR* a_string);
 INT32 ConvertStringToNetworkAddress(const CHAR* a_string, void* a_address);
 
-MySocketT CreateTcpSocket(void);
-MySocketT CreateUdpSocket(void);
+MySocketT OpenTcpSocket(void);
+MySocketT OpenUdpSocket(void);
 
 boolean GetIpOfLocalNetworkDevice(const char* a_interface, char* a_ip, int a_size);
 boolean GetMacOfLocalNetworkDevice(const char* a_interface, char* a_mac, unsigned int a_size);

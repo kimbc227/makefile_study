@@ -28,12 +28,12 @@ INT32 ConvertStringToNetworkAddress(const CHAR* a_string, void* a_address)
 	return inet_pton(AF_INET, a_string, a_address);
 }
 
-MySocketT CreateTcpSocket()
+MySocketT OpenTcpSocket()
 {
 	return socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 }
 
-MySocketT CreateUdpSocket()
+MySocketT OpenUdpSocket()
 {
 	return socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 }
@@ -43,8 +43,6 @@ boolean GetIpOfLocalNetworkDevice(const char* a_interface, char* a_ip, int a_siz
 	int fd;
 	struct ifreq ifr;
 	struct sockaddr_in *aptr;
-
-	DS_UNUSED(a_size);
 
 	fd = socket(AF_INET, SOCK_DGRAM, 0);
 	if (fd < 0)

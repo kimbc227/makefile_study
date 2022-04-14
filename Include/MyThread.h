@@ -13,8 +13,8 @@
 #include "MyCommon.h"
 
 #include <pthread.h>
-//#include <semaphore.h>
-//#include "MyMutex.h"
+#include <semaphore.h>
+#include "MyMutex.h"
 
 typedef pthread_t _MyThreadT_;
 typedef void* (* MyThreadProc)(void*);
