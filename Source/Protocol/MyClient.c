@@ -4,10 +4,14 @@
 #include "MyMutex.h"
 #include "MySemaphore.h"
 #include "MyThread.h"
+#include "MyProtocol.h"
 
 void* DoSomethingNiceProc(void* a_arg)
 {
     _PET;PERROR("Do something nice...\n");
+
+	MyCommandT cmd;
+	InitCommand(&cmd);
 
 	return NULL;
 }

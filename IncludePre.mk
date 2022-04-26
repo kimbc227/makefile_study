@@ -1,10 +1,14 @@
-# MakefilePre.mk
+# IncludePre.mk
 
 CC = gcc
 AR = ar
 RANLIB = ranlib
 RM = rm
+MV = mv
 MKDIR = mkdir
+MAKE = make
+LN = ln
+STRIP = strip
 
 ROOT_SRC_DIR = $(PROJ_ROOT)/Source
 ROOT_OUT_DIR = $(PROJ_ROOT)/Out
